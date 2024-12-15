@@ -2,6 +2,7 @@
 
 import { useLoginUserMutation } from "@/redux/features/auth/apiauth";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 
 interface FormData {
@@ -12,6 +13,7 @@ interface FormData {
 }
 
 const Page: React.FC = () => {
+    const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
    
     email: "",
@@ -36,7 +38,9 @@ const Page: React.FC = () => {
     const {  email,password  } = formData;
   await create({email,password})
 
-   
+  setLoading(false);
+  console.log("Login successful!");
+  router.push("/"); 
 
     setLoading(false);
   };

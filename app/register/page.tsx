@@ -45,7 +45,7 @@ const Page: React.FC = () => {
       await register(data).unwrap();
       setLoading(false);
       console.log("Registration successful!");
-      router.push("/login"); // Redirect to login page
+      router.push("/"); // Redirect to login page
     } catch (err: any) {
       setLoading(false);
       setError(err.data?.message || "Something went wrong. Please try again.");
